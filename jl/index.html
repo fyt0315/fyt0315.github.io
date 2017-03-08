@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="keywords" content=""/>
+<meta name="description" content="" />
+<title>找销网jq</title>
+<link type="text/css" rel="stylesheet"  href="jl/css/index.css" source="widget"/>
+</head>
+<body>
+<div class="header-box">
+	<div class="header">
+		<div class="m clearfix">
+			<a href="#" class="logo">
+			<img src="images/logo.png" alt="logo">
+		</a>
+		<ul class="header-nav">
+			<li><a href="#">简历管理</a></li>
+			<li><a href="#">公司主页</a></li>
+			<li><a href="#">发布职位</a></li>
+			<li><a href="#">职位管理</a></li>
+		</ul>
+		<a href="#" class="dl">
+			<span>王成伟</span><var></var>
+		</a>
+		</div>
+	</div>
+</div>
+<div class="jl-box m" id="jlBox" v-cloak>
+	<div class="jl-t clearfix">
+		<h4>我的简历</h4>
+		<a href="javascript:;" class="yl">预览简历</a>
+	</div>
+	<!-- 基本信息 -->
+	<div class="jb-xx" id="jb-xx">
+		<div class="jb-t clearfix">
+			<span class="bj01"></span><h6>基本信息</h6><a  href="javascript:;" class="bj02" id="jb-btn" v-on:click="jbBj"  >编辑</a>
+		</div>
+		<div class="jb-c clearfix" id="jb-c" >
+			<div class="jb-c-l clearfix" id="jb-c-l" >
+				<div class="xm" id="xm01" v-bind:class="{'bj-show':decide.work01.show01}">
+					<b class="jb-name">{{resume.name}}</b>
+					<em >{{resume.sex}}</em>
+					<i class="jb-age">{{age}}</i><var>岁</var>
+					<var >生日：</var><i class="jb-birthday">{{resume.birthday}}</i>
+					<div class="dz" id="xjd-box">
+						<span>现居省：</span><i class="jb-xjs-i">{{resume.nowProvinces}}</i>
+						<span>现居市：</span><i class="jb-xjc-i">{{resume.nowCity}}</i>
+					</div>
+					<div class="dz" id="hk-box">
+						<span>户口省：</span><i class="jb-hks-i">{{resume.householdProvinces}}</i>
+						<span>户口市：</span><i class="jb-hkc-i">{{resume.householdCity}}</i>
+					</div>
+					<div class="gz" id="work">
+						<span>工作经验：</span><i class="jb-gz-i">{{resume.workExperience}}</i>
+					</div>
+				</div>
+				<div class="xm-bjbox clearfix" id="xm03" v-bind:class="{'bj-show':decide.work01.show02}">
+					<div class="xm-bj clearfix">
+					<input  class="name" v-model="resume.name" type="text">
+					<div class="sex">
+						性别：<label><input type="radio" value="男" v-model="resume.sex"><span>男</span>
+						</label><label><input type="radio" value="女" v-model="resume.sex"><span>女</span></label>
+					</div>
+				</div>
+				<div class=" xm-bj xm-bj02  clearfix">
+				<input  class="name" id="birthday" v-model="resume.birthday" type="text">
+					<div class="gzjj" id="gzjj">
+						<div class="bj-xl">
+							<em class="work-em">{{resume.workExperience}}</em>
+							<a href="javascript:;" id="gzjj-btn" class="gzjj-btn"></a>
+						</div>
+						<select name="" id="" v-model="resume.workExperience">
+							<option selected="selected">工作经验</option>
+							<option>1年</option>
+							<option>2年</option>
+							<option>3年</option>
+							<option>4年</option>
+						</select>
+					</div>					
+				</div>
+				<div class="dz-bj clearfix">
+					<div class="gzjj" id="gzjj">
+						<div class="bj-xl">
+							<em class="work-em">{{resume.nowProvinces}}</em>
+							<a href="javascript:;" id="gzjj-btn" class="gzjj-btn"></a>
+						</div>
+						<select name="" id="" v-model="resume.nowProvinces">
+							<option selected="selected">现居省</option>
+							<option>北京</option>
+							<option>上海</option>
+							<option>广州</option>
+							<option>深圳</option>
+						</select>
+					</div>	
+					<div class="gzjj" id="gzjj">
+						<div class="bj-xl">
+							<em class="work-em">{{resume.nowCity}}</em>
+							<a href="javascript:;" id="gzjj-btn" class="gzjj-btn"></a>
+						</div>
+						<select name="" id="" v-model="resume.nowCity">
+							<option selected="selected">现居市</option>
+							<option>北京</option>
+							<option>上海</option>
+							<option>广州</option>
+							<option>深圳</option>
+						</select>
+					</div>
+				</div>
+				<div class="hk-bj clearfix" >
+					<div class="gzjj" id="gzjj">
+						<div class="bj-xl">
+							<em class="work-em">{{resume.householdProvinces}}</em>
+							<a href="javascript:;" id="gzjj-btn" class="gzjj-btn"></a>
+						</div>
+						<select name="" id="" v-model="resume.householdProvinces">
+							<option selected="selected">户口省</option>
+							<option>北京</option>
+							<option>上海</option>
+							<option>广州</option>
+							<option>深圳</option>
+						</select>
+					</div>	
+					<div class="gzjj" id="gzjj">
+						<div class="bj-xl">
+							<em class="work-em">{{resume.householdCity}}</em>
+							<a href="javascript:;" id="gzjj-btn" class="gzjj-btn"></a>
+						</div>
+						<select name="" id="" v-model="resume.householdCity">
+							<option selected="selected">户口市</option>
+							<option>北京</option>
+							<option>上海</option>
+							<option>广州</option>
+							<option>深圳</option>
+						</select>
+					</div>
+				</div>
+				<div class="jb-bc clearfix" id="jb-bc" >
+					<a href="javascript:;" class="jb-btn01" id="jb-btn01" v-on:click="bjBc">
+						保存
+					</a>
+					<a href="javascript:;" class="jb-btn02">
+						取消
+					</a>
+				</div>
+			</div>
+			</div>
+			<!-- <div class="jb-c-r">
+				<img src="images/zhaopian01.png" alt="">
+			</div> -->
+		</div>
+	</div>
+	<!-- 联系方式 -->
+	<div class="lxfs" id="lxfs">
+		<div class="jb-t clearfix">
+			<span class="bj01"></span><h6 class="lx-jb">基本信息</h6><h6 class="lxfs-t02">联系方式</h6><a  href="javascript:;" class="bj02" id="tel-btn01" v-on:click="lxBj" >编辑</a>
+		</div>
+		<div class="lxfs-c clearfix" v-bind:class="{'bj-show':decide.work02.show01}">
+			<div id="lxfs-dh" class=" lxfs-dh clearfix">
+				<var class="dh-tb"></var>
+				<span class="tel-hm">{{resume.tel.telephone}}</span>
+				<var class="yx-tb"></var>
+				<span class="email">{{resume.tel.mail}}</span>
+			</div>
+		</div>
+		<div class="lxfs-yx" v-bind:class="{'bj-show':decide.work02.show02}">
+			<div class="clearfix">	
+				<div class="tel-bj">
+					<input  class="name dh-value01" type="text" v-model="resume.tel.telephone" placeholder="电话">
+				</div>
+				<div class="tel-bj">
+					<input  class="name dh-value02" type="text" v-model="resume.tel.mail" placeholder="邮箱">
+				</div>
+			</div>
+			<div class="jb-bc lxfs-bc clearfix">
+				<a href="javascript:;" class="jb-btn01 lx-btn01" v-on:click="lxBc">
+					保存
+				</a>
+				<a href="javascript:;" class="jb-btn02">
+					取消
+				</a>
+			</div>
+		</div>
+	</div>
+	<!-- 个人形象 -->
+	<div class="grxx">
+		<div class="jb-t clearfix">
+			<span class="bj01"></span><h6>个人形象</h6>
+		</div>
+		<div class="grxx-c clearfix">
+			<div class="grxx-c01">
+				<var></var>
+			<dl>
+				<dd>通过生活照来展示你的形象</dd>
+				<dd>提高对企业的吸引力</dd>
+				<dt>完善个人形象</dt>
+			</dl>
+			</div>
+			<div class="grxx-c02 clearfix">
+				<div class="grxx-sg">
+					<input type="text" value="身高"><span>身高</span>
+				</div>
+				<div class="grxx-sg grxx-tz">
+					<input type="text" value="体重"><span>公斤</span>
+				</div>
+
+			</div>
+			<div class="jb-bc clearfix">
+					<a href="javascript:;" class="jb-btn01">
+						保存
+					</a>
+					<a href="javascript:;" class="jb-btn02">
+						取消
+					</a>
+			</div>
+		</div>
+	</div>
+	<!-- 求职意向 -->
+	<div class="qzyx" id="qzyx">
+		<div class="jb-t clearfix">
+			<span class="bj01"></span><h6>求职意向</h6><a  href="javascript:;" class="bj02" id="tel-btn01" v-bind:class="{'bj-show':show04}" v-on:click='qzBtn02'>编辑</a>
+		</div>
+		<div class="grxx-c clearfix" v-bind:class="{'bj-show':decide.work03.show01}">
+			<var v-on:click='qzBtn01'></var>
+			<dl>              
+				<dd>通过生活照来展示你的形象</dd>
+				<dd>提高对企业的吸引力</dd>
+				<dt>添加期望工作</dt>
+			</dl>
+		</div>
+		<div class="qzwc" v-bind:class="{'bj-show':decide.work03.show02}" >
+			<span>期望行业：</span><i>{{resume.qzyx.DesiredIndustry}}</i><br/>
+			<span>期望职位：</span><i>{{resume.qzyx.DesiredPosition}}</i><br/>
+			<span>期望工作地区：</span><i>{{resume.qzyx.WorkArea}}{{resume.qzyx.WorkArea01}}</i><br/>
+			<span>期望底薪：</span><i>{{resume.qzyx.ExpectedSalary}}</i><br/>
+			<span>期望销售产品：</span><i>{{resume.qzyx.promotingProducts}}</i><br/>
+			<span>销售方式：</span><i>{{resume.qzyx.SalesMode}}</i><br/>
+		</div>
+		<div class="qzbj" v-bind:class="{'bj-show':decide.work03.show03}">
+				<div class="qwhy clearfix">
+					<span>期望行业：</span>
+					<div class="gzjj qwhy-xl" id="gzjj" >
+						<div class="bj-xl qwhy-xl01">
+							<em class="work-em">{{resume.qzyx.DesiredIndustry}}</em>
+							<a href="javascript:;" id="gzjj-btn" class="gzjj-btn"></a>
+						</div>
+						<select name="" id="" v-model="resume.qzyx.DesiredIndustry">
+							<option selected="selected">--请选择--</option>
+							<option>IT/互联网</option>
+							<option>机械工程</option>
+							<option>销售</option>
+							<option>不知道</option>
+						</select>
+					</div>
+				</div>
+				<div class="qwzw clearfix">
+					<span>期望职位：</span>
+					<input type="text" v-model="resume.qzyx.DesiredPosition">
+				</div>
+				<div class="qwzw clearfix">
+					<span>期望底薪：</span>
+					<input type="text" v-model="resume.qzyx.ExpectedSalary">
+				</div>
+				<div class="gz-dq clearfix">
+					<span>期望工作地区：</span>
+						<div class="gzjj" id="gzjj">
+						<div class="bj-xl">
+							<em class="work-em">{{resume.qzyx.WorkArea}}</em>
+							<a href="javascript:;" id="gzjj-btn" class="gzjj-btn"></a>
+						</div>
+						<select name="" id="" v-model="resume.qzyx.WorkArea">
+							<option selected="selected">--请选择--</option>
+							<option>北京</option>
+							<option>上海</option>
+							<option>广州</option>
+							<option>深圳</option>
+						</select>
+					</div>
+					<div class="gzjj" id="gzjj">
+						<div class="bj-xl">
+							<em class="work-em">{{resume.qzyx.WorkArea01}}</em>
+							<a href="javascript:;" id="gzjj-btn" class="gzjj-btn"></a>
+						</div>
+						<select name="" id="" v-model="resume.qzyx.WorkArea01">
+							<option selected="selected">--请选择--</option>
+							<option>北京</option>
+							<option>上海</option>
+							<option>广州</option>
+							<option>深圳</option>
+						</select>
+					</div>
+						<label for="ss"><input  id="ss" type="checkbox">可出差</label>
+					</div>
+				<div class="qwcp clearfix">
+					<span>期望产品：</span><input type="text" v-model="resume.qzyx.promotingProducts">
+				</div>
+				<div class="xsfs">
+					<span>销售方式：</span>
+					<div class="xs-lx">
+						<label><input type="checkbox" value="SalesMode" v-model="resume.qzyx.SalesMode"><em>店面销售</em></label>
+						<label><input type="checkbox" value="SalesMode01" v-model="resume.qzyx.SalesMode"><em>网络销售</em></label>
+						<label><input type="checkbox" value="SalesMode02" v-model="resume.qzyx.SalesMode"><em>渠道销售</em></label>
+						<label><input type="checkbox" value="SalesMode03" v-model="resume.qzyx.SalesMode"><em>什么销售</em></label>
+						<label><input type="checkbox" value="SalesMode04" v-model="resume.qzyx.SalesMode"><em>怎么销售</em></label>
+						<label><input type="checkbox" value="SalesMode05" v-model="resume.qzyx.SalesMode"><em>看看销售</em></label>
+					</div>
+				</div>
+				<div class="jb-bc lxfs-bc clearfix">
+				<a href="javascript:;" class="jb-btn01 lx-btn01" v-on:click="qzBtn03">
+					保存
+				</a>
+				<a href="javascript:;" class="jb-btn02">
+					取消
+				</a>
+			</div>
+			</div>
+	</div>	
+	<!-- 工作经历 -->
+	<div class="gzjl" id="gzjl">
+			<div class="qzyx gzjl-n clearfix" v-bind:class="{'bj-show':decide.work04.show01}">
+				<div class="jb-t clearfix">
+					<span class="bj01"></span><h6>工作经历</h6>
+				</div>
+		 		<div class="gzjl-c" >
+		 				<div class="grxx-c01">
+						<var class="gzjl-btn01" v-on:click="addWork(-1)"></var>
+						<dl>              
+							<dd>针对销售职位定制的工作经历，更加专业</dd>
+							<dd>以更加充分的展示你的工作能力</dd>
+							<dt><a href="javascript:;">添加工作经历</a></dt>
+						</dl>
+						</div>
+		 		</div>
+			</div>
+			<div class="jl-wc01" v-bind:class="{'bj-show':decide.work04.show02}">
+				<div class="jb-t clearfix">
+					<span class="bj01"></span><h6>基本信息</h6><a href="javascript:;" class="bj02" id="tel-btn02" v-on:click="addWork(-2)">添加</a>
+				</div>
+				<div  v-for="jlsu in resume.gzjl">
+					<div class="jlgs-mc">
+						<span >{{jlsu.company}}</span>----<span>{{jlsu.position}}</span>
+						<a  class="qcbj-btn" href="javascript:;" v-on:click="gzBtn02($event,jlsu,$index)">编辑</a>
+						<a href="javascript:;" v-on:click="delWork($index)"> 删除</a>
+	 				</div>
+					<div class="gzjl-time">
+	 					<span>开始年份:</span><b>{{jlsu.start_year}}</b><span>开始年份:</span><b>{{jlsu.start_months}}</b>
+	 					<span>结束年份:</span><b>{{jlsu.end_year}}</b><span>结束年份:</span><b>{{jlsu.end_months}}</b>
+	 				</div>
+	 				<p>管理岗位</p>
+	 				<div class="gzjl-gw">
+	 					<span>汇报对象</span><i>{{jlsu.sales_type}}</i><span>下属人数</span><i>{{jlsu.subordinate}}</i>
+	 				</div>
+	 				<div class="zwpj">{{jlsu.desc}}</div>
+	 				<p>让数据说话，快来展示你的傲人业绩吧~</p>
+	 				<div class="gzjl-gw">
+	 					<i>{{jlsu.sales_mouths}}</i><span>月销售额</span><i>{{jlsu.sales_year}}</i><span>年销售额</span><span>目标完成率</span><i>{{jlsu.finish_rate}}</i>
+	 				</div>
+	 				<div class="gzjl-gw">
+	 					<i></i><span>月销售额</span><i>{{jlsu.productions}}</i><span>年销售额</span><i>{{jlsu.sell_target}}</i><span>目标完成率</span>
+	 				</div>
+	 				<p>让数据说话，快来展示你的傲人业绩吧~</p>
+	 				<div>
+	 					{{jlsu.sell_mode}}
+	 				</div>
+	 			</div>	
+ 			</div>
+ 			<div class="gzjl-bj" v-bind:class="{'bj-show':decide.work04.show03}">
+ 				<div class="jb-t clearfix">
+				<span class="bj01"></span><h6>基本信息</h6>
+				</div>
+				<div class="gsName clearfix">
+					<div class="grxx-sg">
+						<input class="gsmc" type="text" v-model="expItem.company" placeholder="公司名称">
+					</div>
+					<div class="grxx-sg grxx-tz">
+						<input class="zwmc" type="text"  v-model="expItem.position" placeholder="公司职位">
+					</div>
+				</div>
+				<div class="clearfix ">
+					<div class="workTime clearfix">
+					<!-- <i>开始年份</i> -->
+						<div class="gzjj jy-year" id="gzjj">
+							<div class="bj-xl">
+								<em class="work-em">{{expItem.start_year}}</em>
+								<a href="javascript:;" id="gzjj-btn" class="gzjj-btn"></a>
+							</div>
+							<select v-model="expItem.start_year">
+								<option selected="selected">--请选择--</option>
+								<option>1998</option>
+								<option>1999</option>
+								<option>2000</option>
+								<option>2001</option>
+							</select>
+						</div>
+						<div class="gzjj jy-mouths" id="gzjj">
+							<div class="bj-xl">
+								<!-- <i>开始月份</i> --><em class="work-em">{{expItem.start_months}}</em>
+								<a href="javascript:;" id="gzjj-btn" class="gzjj-btn"></a>
+							</div>
+							<select v-model="expItem.start_months">
+								<option selected="selected">--请选择--</option>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+							</select>
+						</div>
+					</div>
+					<div class="clearfix">
+						<div class="gzjj jy-endYear" id="gzjj">
+							<div class="bj-xl">
+							<!-- <i>开始年份</i> --><em class="work-em">{{expItem.end_year}}</em>
+								<a href="javascript:;" id="gzjj-btn" class="gzjj-btn"></a>
+							</div>
+							<select  v-model="expItem.end_year">
+								<option selected="selected">--请选择--</option>
+								<option>2001</option>
+								<option>2002</option>
+								<option>2003</option>
+								<option>2004</option>
+							</select>
+						</div>
+						<div class="gzjj" id="gzjj">
+							<div class="bj-xl">
+								<!-- <i>开始年份</i> --><em class="work-em">{{expItem.end_months}}</em>
+								<a href="javascript:;" id="gzjj-btn" class="gzjj-btn"></a>
+							</div>
+							<select  v-model="expItem.end_months">
+								<option selected="selected">--请选择--</option>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="glzw">
+					<label for="gw"><input type="checkbox" id="gw">管理岗位</label>
+				</div>
+				<div class="glzw clearfix">
+					<div class="grxx-sg">
+						<input type="text" v-model="expItem.sales_type"><span>汇报对象</span>
+					</div>
+					<div class="grxx-sg grxx-tz">
+						<input type="text" v-model="expItem.subordinate"><span>下属人数</span>
+					</div>
+				</div>
+				<textarea class="xg-px" v-model="expItem.desc" placeholder="从招聘，培训，团队建设，销售目标等角度描述管理方面的"></textarea>
+				<div class="jl-sj">
+					<p>让数据说话，快来展示你的傲人业绩吧~</p>
+					<div class="sj-val clearfix">
+						<div class="grxx-sg sj-val01">
+							<input type="text" v-model="expItem.sales_mouths"><span >万元</span>
+						</div>
+						<div class="grxx-sg sj-val01">
+							<input type="text" v-model="expItem.sales_year"><span>万元</span>
+						</div>
+						<div class="grxx-sg sj-val01">
+							<input type="text" v-model="expItem.finish_rate">
+						</div>
+						<div class="grxx-sg sj-val01">
+							<input type="text" v-model="expItem.productions">
+						</div>
+						<div class="gzjj xsdx" id="gzjj">
+							<div class="bj-xl">
+								<!-- <i>开始年份</i> -->
+								<em class="work-em">{{expItem.sell_target}}</em>
+								<a href="javascript:;" id="gzjj-btn" class="gzjj-btn"></a>
+							</div>
+							<select v-model="expItem.sell_target">
+								<option selected="selected">--请选择--</option>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+							</select>
+						</div>
+						<div class="grxx-sg  xsms">
+							<input type="text">
+						</div>
+					</div>
+					<div class="glzw">
+							<label for="gw"><input type="checkbox" id="gw">管理岗位</label>
+					</div>
+						<textarea class="xg-px" v-model="expItem.sell_mode" placeholder="从招聘，培训，团队建设，销售目标等角度描述管理方面的"></textarea>
+				</div>
+				<div class="jb-bc clearfix" id="jl-bcBtn">
+					<a href="javascript:;" class="jb-btn01" id="jl-bcBtn01" v-on:click="saveWork(expItem)">
+						保存
+					</a>
+					<a href="javascript:;" class="jb-btn02" v-on:click="canceWork">
+						取消
+					</a>
+				</div>
+ 			</div>
+	</div>
+	<!-- 教育培训 -->
+	<div v-bind:class="{'bj-show':decide.work05.show01}" class="clearfix">
+		<div class="jb-t clearfix">
+			<span class="bj01"></span><h6>教育培训</h6>
+		</div>
+		<div class="grxx-c clearfix" >
+			<var v-on:click='addWork01(-20)'></var>
+			<dl>              
+				<dd>通过生活照来展示你的形象</dd>
+				<dd>提高对企业的吸引力</dd>
+				<dt>添加期望工作</dt>
+			</dl>
+		</div>
+	</div>
+	<div class="clearfix" v-bind:class="{'bj-show':decide.work05.show02}" class="clearfix">
+		<div class="jb-t clearfix">
+					<span class="bj01"></span><h6>教育培训</h6><a href="javascript:;" class="bj02" id="tel-btn02" v-on:click="addWork01(-9)">添加学校经历</a><a href="javascript:;" class="bj02" id="tel-btn02" v-on:click="addWork02(-9)">添加培训经历</a>
+		</div>
+		<div>
+			<div v-for="school in resume.edu_history">
+				<div class="jlgs-mc">
+						<span >{{school.school}}</span>----<span>{{school.major}}</span>---<span>{{school.level}}</span><a href="javascript:;" v-on:click="editWork($event,school,$index)">编辑</a><a href="javascript:;" v-on:click="delWork($index)">删除</a>
+	 			</div>
+					<div class="gzjl-time">
+	 					<span>开始年份:</span><b>{{school.start_year}}</b><span>开始月份:</span><b></b>
+	 					span>结束年份：</span><b>{{school.end_year}}</b><span>结束月份：</span><b></b>
+	 					
+	 				</div>
+			</div>
+		</div>
+	</div>
+		<!-- 编辑 -->
+	<div v-bind:class="{'bj-show':decide.work05.show03}">
+		<div class="gsName clearfix">
+				<div class="grxx-sg">
+					<input class="gsmc" type="text" v-model="edu_history.school" placeholder="学校名称" >
+				</div>
+				<div class="grxx-sg grxx-tz">
+					<input class="zwmc" type="text"  v-model="edu_history.major" placeholder="专业名称：">
+				</div>
+		</div>
+		<div class="clearfix ">
+				<div class="workTime clearfix">
+				<!-- <i>开始年份</i> -->
+				<div class="gzjj jy-year" id="gzjj">
+					<div class="bj-xl">
+						<em class="work-em">{{edu_history.start_year}}</em>
+						<a href="javascript:;" id="gzjj-btn" class="gzjj-btn"></a>
+					</div>
+					<select name="" id="" v-model="edu_history.start_year">
+						<option selected="selected">--请选择--</option>
+						<option>1998</option>
+						<option>1999</option>
+						<option>2000</option>
+						<option>2001</option>
+					</select>
+				</div>
+				<div class="gzjj jy-mouths" id="gzjj">
+					<div class="bj-xl">
+						<!-- <i>开始年份</i> -->
+						<em class="work-em">{{edu_history.start_months}}</em>
+						<a href="javascript:;" id="gzjj-btn" class="gzjj-btn"></a>
+					</div>
+					<select name="" id="" v-model="edu_history.start_months">
+						<option selected="selected">--请选择--</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+					</select>
+				</div>
+			</div>
+				<div class="clearfix">
+					<div class="gzjj jy-year" id="gzjj">
+						<div class="bj-xl">
+						<!-- <i>开始年份</i> --><em class="work-em">{{edu_history.end_year}}</em>
+							<a href="javascript:;" id="gzjj-btn" class="gzjj-btn"></a>
+						</div>
+						<select name="" id="" v-model="edu_history.end_year">
+							<option selected="selected">--请选择--</option>
+							<option>2001</option>
+							<option>2002</option>
+							<option>2003</option>
+							<option>2004</option>
+						</select>
+					</div>
+					<div class="gzjj jy-mouths" id="gzjj">
+						<div class="bj-xl">
+							<!-- <i>开始年份</i> --><em class="work-em">{{edu_history.end_months}}</em>
+							<a href="javascript:;" id="gzjj-btn" class="gzjj-btn"></a>
+						</div>
+						<select  v-model="edu_history.end_months">
+							<option selected="selected">--请选择--</option>
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+						</select>
+					</div>
+				</div>
+		</div>
+		<div class="gzjj" id="gzjj">
+						<div class="bj-xl">
+							<!-- <i>开始年份</i> --><em class="work-em">{{edu_history.level}}</em>
+							<a href="javascript:;" id="gzjj-btn" class="gzjj-btn"></a>
+						</div>
+						<select name="" id="" v-model="edu_history.level">
+							<option selected="selected">--请选择--</option>
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+						</select>
+					</div>
+		<div class="jb-bc clearfix jyjl-bc">
+			<a href="javascript:;" class="jb-btn01" v-on:click="saveWork01(edu_history)">
+				保存
+			</a>
+			<a href="javascript:;" class="jb-btn02" v-on:click="canceWork">
+				取消
+			</a>
+		</div>
+	</div>
+</div>
+<script>
+	seajs.use("jianli",function (app) {
+		app.init()
+	})
+</script>
+<script type="text/javascript" src="jl/js/jquery.js" source="widget"></script>
+<script type="text/javascript" src="jl/js/sea.js" source="widget"></script>
+<script type="text/javascript" src="jl/js/handlebars-1.1.2.js" source="widget"></script>
+<script type="text/javascript" src="jl/js/vue.js" source="widget"></script>
+</body>
+</html>
