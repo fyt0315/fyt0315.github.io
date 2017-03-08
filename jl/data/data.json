@@ -1,23 +1,23 @@
 {
-	"name":"啊我的",
+	"name":"封杨亭",
 	"sex":["男"],
 	"age":"27",
 	"birthday":"1987",
-	"nowProvinces":"",
-	"nowCity":"",
-	"householdProvinces":"",
-	"householdCity":"",
-	"workExperience":"",
+	"nowProvinces":"北京",
+	"nowCity":"北京",
+	"householdProvinces":"河北",
+	"householdCity":"唐山",
+	"workExperience":"1",
 	"tel":{
-		"telephone":"18601206045",
-		"mail":"yhanwen@gmail.com"
+		"telephone":"18611959668",
+		"mail":"fyt531161055@qq.com"
 	},
 	"qzyx":{
-		"DesiredIndustry":"",
-		"DesiredPosition":"",
-		"WorkArea":"",
-		"WorkArea01":"",
-		"ExpectedSalary":"",
+		"DesiredIndustry":"IT/互联网",
+		"DesiredPosition":"web前端",
+		"WorkArea":"北京",
+		"WorkArea01":"北京",
+		"ExpectedSalary":"10K",
 		"promotingProducts":"",
 		"SalesMode":[]
 	},
